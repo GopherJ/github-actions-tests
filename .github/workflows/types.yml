@@ -10,7 +10,6 @@ jobs:
               run: |
                   git clone https://github.com/GopherJ/github-actions-tests
                   cd github-actions-tests
-                  git checkout testnet
                   curl -fLo resources/types.json https://raw.githubusercontent.com/parallel-finance/parallel/master/resources/types.json
             - name: Check for modified files
               id: git-check
@@ -22,11 +21,10 @@ jobs:
                   git config --global user.name "Github Actions"
                   git config --global user.email "Github Actions"
                   cd github-actions-tests
-                  git checkout testnet
                   if [ -z "$(git status --porcelain)" ]
                     then
                       echo "nothing to update."
                   else
                       git commit -am "update types.json"
                   fi
-                  git push "https://${{ secrets.GITHUB_TOKEN }}@github.com/GopherJ/github-actions-tests.git" HEAD:testnet
+                  git push "https://${{ secrets.PAT }}@github.com/GopherJ/github-actions-tests.git" HEAD:main

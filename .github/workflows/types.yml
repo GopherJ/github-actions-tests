@@ -20,7 +20,7 @@ jobs:
               uses: peter-evans/create-pull-request@v3
               with:
                   token: ${{ secrets.GITHUB_TOKEN }}
-                  base: 'testnet'
+                  delete-branch: true
                   commit-message: update types.json
                   title: 'Update types.json'
                   body: >

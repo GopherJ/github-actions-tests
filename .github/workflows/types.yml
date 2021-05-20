@@ -1,6 +1,6 @@
 on:
     schedule:
-        - cron: '* * * * *'
+        - cron: '*/5 * * * *'
 name: Check if types.json has changed
 jobs:
     createPullRequest:
@@ -14,6 +14,7 @@ jobs:
               uses: peter-evans/create-pull-request@v3
               with:
                   token: ${{ secrets.GITHUB_TOKEN }}
+                  base: 'testnet'
                   commit-message: update types.json
                   title: 'Update types.json'
                   body: >

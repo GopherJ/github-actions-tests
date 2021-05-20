@@ -44,5 +44,9 @@
     },
     "OracleKey": "CurrencyId",
     "OracleValue": "FixedU128",
-    "MomentOf": "Moment"
+    "MomentOf": "Moment",
+    "TimestampedValueOf": {
+        "value": "FixedU128",
+        "timestamp": "u64"
+    }
 }

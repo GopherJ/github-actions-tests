@@ -7,8 +7,6 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
-              with:
-                  ref: testnet
             - name: Pull latest types.json
               run: |
                   curl -fLo resources/types.json https://raw.githubusercontent.com/parallel-finance/parallel/master/resources/types.json
@@ -21,6 +19,7 @@ jobs:
               with:
                   token: ${{ secrets.GITHUB_TOKEN }}
                   delete-branch: true
+                  base: 'testnet'
                   commit-message: update types.json
                   title: 'Update types.json'
                   body: >
